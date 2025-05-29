@@ -1,4 +1,4 @@
-# TeamSG
+
 cat << 'EOF' > README.md
 # Simple To-Do List App
 
