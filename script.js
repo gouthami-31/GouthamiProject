@@ -121,46 +121,61 @@ document.addEventListener('DOMContentLoaded', () => {
             listItem.appendChild(taskActions);
             taskList.appendChild(listItem);
         });
+
     }
 
     // Function to add a new task
     function addTask() {
         const taskText = taskInput.value.trim();
         if (taskText === '') {
-            alert('Task cannot be empty!');
+
+            alert('Please enter a task!'); // Basic validation
+
             return;
         }
 
         const newTask = {
-            id: Date.now(), // Unique ID for the task
+
+            id: Date.now(), // Unique ID for each task
+
             text: taskText,
             completed: false
         };
 
         tasks.push(newTask);
-        taskInput.value = ''; // Clear input field
+
         saveTasks();
-        renderTasks();
+        taskInput.value = ''; // Clear input field
+        renderTasks(); // Re-render to show new task
     }
 
-    // Function to toggle task completion status
-    function toggleTaskCompletion(id) {
-        const taskIndex = tasks.findIndex(task => task.id === id);
-        if (taskIndex > -1) {
+    // Function to handle task actions (complete/delete) using event delegation
+    function handleTaskActions(event) {
+        const target = event.target;
+        const listItem = target.closest('.task-item'); // Find the parent li element
+
+        if (!listItem) return; // Not a task item
+
+        const taskId = parseInt(listItem.dataset.id);
+        const taskIndex = tasks.findIndex(task => task.id === taskId);
+
+        if (taskIndex === -1) return; // Task not found (shouldn't happen)
+
+        if (target.closest('.complete-btn')) {
+            // Toggle completed status
             tasks[taskIndex].completed = !tasks[taskIndex].completed;
             saveTasks();
             renderTasks();
-        }
-    }
+        } else if (target.closest('.delete-btn')) {
+            // Delete task
+            tasks.splice(taskIndex, 1);
 
-    // Function to delete a task
-    function deleteTask(id) {
-        if (confirm('Are you sure you want to delete this task?')) {
-            tasks = tasks.filter(task => task.id !== id);
             saveTasks();
             renderTasks();
         }
     }
+
+
 
     // Function to edit a task
     function editTask(id) {
@@ -184,9 +199,11 @@ document.addEventListener('DOMContentLoaded', () => {
         if (confirm('Are you sure you want to clear all completed tasks?')) {
             tasks = tasks.filter(task => !task.completed);
             saveTasks();
+
             renderTasks();
         }
     }
+
 
     // Event Listeners
     addTaskBtn.addEventListener('click', addTask);
@@ -234,4 +251,5 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initial render when page loads
     renderTasks();
     updateFilterButtons();
+
 });

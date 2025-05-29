@@ -1,23 +1,37 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+/* Basic Resets & Global Styles */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #6dd5ed, #2193b0);
+    background: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+    color: #333;
+
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+
     margin: 0;
     color: #333;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
 }
 
 .container {
     background-color: #ffffff;
     padding: 30px 40px;
+
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+
     width: 100%;
     max-width: 500px;
     text-align: center;
@@ -25,30 +39,52 @@ body {
 }
 
 h1 {
-    color: #2193b0;
+
+    color: #4a4a4a;
     margin-bottom: 25px;
-    font-weight: 700;
+    font-weight: 600;
+    font-size: 2.2em;
     display: flex;
     align-items: center;
     justify-content: center;
+
+   
+    
     gap: 10px;
+
 }
 
+h1 .fas {
+    margin-right: 10px;
+    color: #2575fc;
+}
+
+/* Input Section */
 .input-section {
     display: flex;
     margin-bottom: 25px;
+
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+
     gap: 10px;
+
 }
 
 #taskInput {
     flex-grow: 1;
     padding: 12px 15px;
+
     border: 2px solid #ddd;
     border-radius: 8px;
     font-size: 1rem;
+
     outline: none;
     transition: border-color 0.3s ease;
 }
+
 
 #taskInput:focus {
     border-color: #6dd5ed;
@@ -104,10 +140,23 @@ h1 {
     background-color: #2193b0;
     color: white;
     border-color: #2193b0;
+
 }
 
+.filter-btn:hover {
+    background-color: #d0d0d0;
+}
+
+.filter-btn.active {
+    background-color: #2575fc;
+    color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Task List */
 #taskList {
     list-style: none;
+
     padding: 0;
     margin-top: 0;
     max-height: 400px; /* Limit height for scrollability */
@@ -196,17 +245,28 @@ h1 {
     color: white;
     font-size: 14px;
     font-weight: bold;
+
 }
 
 .task-text {
     flex-grow: 1;
+
+    text-align: left;
+    word-break: break-word; /* Prevents long text from overflowing */
+}
+
+.task-actions-item {
+
     padding-right: 10px; /* Space for buttons */
 }
 
 .task-actions {
+
     display: flex;
     gap: 8px;
+    margin-left: 15px;
 }
+
 
 .task-actions button {
     background: none;
@@ -310,4 +370,5 @@ h1 {
         font-size: 0.9rem;
         padding: 12px;
     }
+
 }

@@ -3,13 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Awesome To-Do List</title>
+    <title>Advanced To-Do List</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <div class="container">
+
+    
         <h1><i class="fas fa-clipboard-list"></i> My To-Do List</h1>
 
         <div class="input-section">
@@ -23,12 +26,18 @@
             <button id="allTasksFilter" class="active">All</button>
             <button id="activeTasksFilter">Active</button>
             <button id="completedTasksFilter">Completed</button>
+
         </div>
 
         <ul id="taskList">
             </ul>
 
-        <button id="clearCompletedBtn" class="clear-button">Clear Completed</button>
+
+        <div class="task-actions">
+            <button id="clearCompletedBtn">Clear Completed</button>
+            <span id="itemsLeft">0 items left</span>
+        </div>
+
     </div>
 
     <script src="script.js"></script>
