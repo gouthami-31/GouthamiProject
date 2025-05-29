@@ -1,21 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My To-Do List</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Awesome To-Do List</title>
+<meta name="description" content="A simple and effective to-do list web application to help you stay organized.">
+<meta name="keywords" content="to-do list, task management, productivity, organization">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="favicon.ico" type="image/x-icon"> <link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<meta name="author" content="Your Name or Organization">
+<meta property="og:title" content="My Awesome To-Do List">
+<meta property="og:description" content="A simple and effective to-do list web application to help you stay organized.">
+<meta property="og:url" content="URL_OF_YOUR_DEPLOYED_APP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#3498db"> </head>
 <body>
-    <div class="container">
-        <h1>My To-Do List</h1>
-        <div class="input-section">
-            <input type="text" id="taskInput" placeholder="Add a new task...">
-            <button id="addTaskBtn">Add Task</button>
-        </div>
-        <ul id="taskList">
-            </ul>
-    </div>
-    <script src="script.js"></script>
+<div class="container">
+<header>
+<h1>My Awesome To-Do List</h1>
+<p class="tagline">Get organized and stay productive!</p>
+</header>
+<main>
+<section class="input-section">
+<input type="text" id="taskInput" placeholder="Add a new task...">
+<button id="addTaskBtn">Add Task</button>
+</section>
+<section class="task-list-section">
+<h2>Tasks</h2>
+<ul id="taskList">
+</ul>
+<p id="empty-list-message" class="hidden">Your to-do list is empty. Add some tasks!</p>
+</section>
+</main>
+</div>
+<script src="script.js"></script>
 </body>
 </html>
