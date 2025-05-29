@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('tasks', JSON.stringify(tasks));
     }
 
+    
     // Function to render tasks based on the current filter
     function renderTasks() {
         taskList.innerHTML = ''; // Clear existing tasks
@@ -26,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 return task.completed;
             }
             return true; // 'all' filter
+
         });
 
         if (filteredTasks.length === 0 && currentFilter === 'all') {
